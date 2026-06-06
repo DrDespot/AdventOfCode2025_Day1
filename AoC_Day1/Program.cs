@@ -11,7 +11,7 @@ int min_dial = 0;
 int amount_of_zeros;
 
 
-// Proccessing information into array
+// Proccessing information
 List<int> processed_input = new List<int>();
 StringBuilder sb = new StringBuilder();
 bool first = true;
@@ -30,7 +30,7 @@ foreach (var line in input_content)
         sb.Clear();
     }
 
-    if (line == 'L')
+    if (line == 'L') 
     {
         sb.Append("-");
     }
@@ -40,9 +40,28 @@ foreach (var line in input_content)
     }
 }
 
+// Insert processed infromation into array
 Console.WriteLine("Array");
-foreach (var item in processed_input)
+foreach (var move in processed_input)
 {
-    Console.WriteLine(item.ToString());
+    Console.WriteLine(move.ToString());
 }
 
+
+Console.WriteLine("Array");
+foreach (var move in processed_input)
+{
+    Console.WriteLine("The dial rotated " + ToString(move));
+
+
+    if currentdialstate + move => max
+        currentdialstate = abs(current_dialstate - move) + min_dial
+    if currentddialstate - move =< min
+        currentdialstate = maxdial - (abs(move) - current_dialstate)
+    else 
+        current_dialstate += move
+
+    if currentdialstate == 0
+        amountofzeros += 1
+
+}
