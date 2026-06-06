@@ -1,9 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Text;
 
-Console.WriteLine("Hello, World!");
-
-
 //Console.WriteLine(Environment.CurrentDirectory);
 string input_filepath = "../../../input.txt";
 string input_content = File.ReadAllText(input_filepath);
@@ -14,15 +11,22 @@ int min_dial = 0;
 int amount_of_zeros;
 
 
-// Proccessing information into 
-int[] processed_input;
+// Proccessing information into array
+List<int> processed_input = new List<int>();
 StringBuilder sb = new StringBuilder();
+bool first = true;
 foreach (var line in input_content)
 {
-    
+    if (first)
+    {
+        first = false;
+        continue;
+    }
+
     if (line == 'L' || line == 'R')
     {
-        Console.WriteLine(sb);
+        //Console.WriteLine(sb);
+        processed_input.Add(Int32.Parse(sb.ToString()));
         sb.Clear();
     }
 
@@ -34,7 +38,11 @@ foreach (var line in input_content)
     {
         sb.Append(line);
     }
-
-    
-
 }
+
+Console.WriteLine("Array");
+foreach (var item in processed_input)
+{
+    Console.WriteLine(item.ToString());
+}
+
