@@ -34,7 +34,7 @@ foreach (var line in input_content)
     {
 
     }
-    else
+    else if (char.IsWhiteSpace(line) != true)
     {
         sb.Append(line);
     }
