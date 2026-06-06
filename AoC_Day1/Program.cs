@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Text;
+using System;
 
 //Console.WriteLine(Environment.CurrentDirectory);
 string input_filepath = "../../../input.txt";
@@ -11,7 +12,7 @@ int min_dial = 0;
 int amount_of_zeros;
 
 
-// Proccessing information
+// Proccessing information into a usable array
 List<int> processed_input = new List<int>();
 StringBuilder sb = new StringBuilder();
 bool first = true;
@@ -40,28 +41,32 @@ foreach (var line in input_content)
     }
 }
 
-// Insert processed infromation into array
-Console.WriteLine("Array");
-foreach (var move in processed_input)
-{
-    Console.WriteLine(move.ToString());
-}
+// Print array
+//Console.WriteLine("Array");
+//foreach (var move in processed_input)
+//{
+//    Console.WriteLine(move.ToString());
+//}
 
 
 Console.WriteLine("Array");
 foreach (var move in processed_input)
 {
-    Console.WriteLine("The dial rotated " + ToString(move));
+    Console.WriteLine("Current Dialstate is " + current_dialstate.ToString());
+    Console.WriteLine("The dial rotated " + move.ToString());
 
+    if (current_dialstate + move >= 99) //WORKS
+    {
+        current_dialstate = Math.Abs(max_dial - current_dialstate - move + 1);
 
-    if currentdialstate + move => max
-        currentdialstate = abs(current_dialstate - move) + min_dial
-    if currentddialstate - move =< min
-        currentdialstate = maxdial - (abs(move) - current_dialstate)
-    else 
-        current_dialstate += move
+    } else if (current_dialstate + move <= 0)
+    {
+        current_dialstate = max_dial + move + current_dialstate + 1;
+    }
+    else
+    {
+        current_dialstate += move;
+    }
 
-    if currentdialstate == 0
-        amountofzeros += 1
-
+  
 }
