@@ -30,11 +30,7 @@ foreach (var line in input_content)
     {
         sb.Append("-");
     }
-    else if (line == 'R')
-    {
-
-    }
-    else if (char.IsWhiteSpace(line) != true)
+    else if ((char.IsWhiteSpace(line) != true) && (line != 'R'))
     {
         sb.Append(line);
     }
