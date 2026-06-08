@@ -70,17 +70,22 @@ foreach (var move in processed_input)
     //    current_dialstate = (current_dialstate + move) / 100;
 
 
+    // THIS ONE WOULD WORK BUT C# HAS SOME MODULU QUIRKS WHICH BREAK IT
+    //if (current_dialstate + move > 99)
+    //{
+    //    current_dialstate = (current_dialstate + move) % 100;
+    //}
+    //else if (current_dialstate + move < 0)
+    //{
+    //    int abs_move = Math.Abs(current_dialstate + move);
+    //    current_dialstate = abs_move % -100;
+    //}
+    //else
+    //{
+    //    //Console.WriteLine($"*    In bounds: {current_dialstate + move}");
+    //    current_dialstate += move;
 
-    if ((current_dialstate + move > 99) || (current_dialstate + move < 0))
-    {
-        current_dialstate = current_dialstate % 100;
-    }
-    else
-    {
-        Console.WriteLine($"*    In bounds: {current_dialstate + move}");
-        current_dialstate += move;
-
-    }
+    //}
 
   
 }
