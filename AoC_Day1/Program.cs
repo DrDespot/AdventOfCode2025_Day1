@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Text;
 using System;
+using System.Runtime.CompilerServices;
 
 //Console.WriteLine(Environment.CurrentDirectory);
 string input_filepath = "../../../input.txt";
@@ -55,17 +56,30 @@ foreach (var move in processed_input)
     Console.WriteLine("Current Dialstate is " + current_dialstate.ToString());
     Console.WriteLine("The dial rotated " + move.ToString());
 
-    if (current_dialstate + move >= 99) //WORKS
-    {
-        current_dialstate = Math.Abs(max_dial - current_dialstate - move + 1);
+    //if (current_dialstate + move >= 99) //WORKS
+    //{
+    //    current_dialstate = (current_dialstate + move) / 100;
+    //    //current_dialstate = Math.Abs(max_dial - current_dialstate - move + 1);
+    //    //if (current_dialstate >= 99)
+    //    //    current_dialstate = current_dialstate % 100;
 
-    } else if (current_dialstate + move <= 0)
+    //} else if (current_dialstate + move <= 0)
+    //{
+    //    //current_dialstate = max_dial + move + current_dialstate + 1;
+    //    //if (current_dialstate <= 0)
+    //    current_dialstate = (current_dialstate + move) / 100;
+
+
+
+    if ((current_dialstate + move > 99) || (current_dialstate + move < 0))
     {
-        current_dialstate = max_dial + move + current_dialstate + 1;
+        current_dialstate = current_dialstate % 100;
     }
     else
     {
+        Console.WriteLine($"*    In bounds: {current_dialstate + move}");
         current_dialstate += move;
+
     }
 
   
