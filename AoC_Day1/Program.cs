@@ -42,11 +42,28 @@ foreach (var line in input_content)
     }
 }
 
-// Print array
-//Console.WriteLine("Array");
-//foreach (var move in processed_input)
+
+//current_dialstate = -563;
+//if (current_dialstate > 99)
 //{
-//    Console.WriteLine(move.ToString());
+//    int amount_of_divisions = current_dialstate / 100;
+
+//    for (int i = 0; i < amount_of_divisions; i++)
+//    {
+//        current_dialstate -= 100;
+//    }
+
+//}
+
+//if (current_dialstate < 0)
+//{
+//    int amount_of_divisions = Math.Abs(current_dialstate / 100) + 1;
+//    Console.WriteLine(amount_of_divisions);
+//    for (int i = 0; i < amount_of_divisions; i++)
+//    {
+//        current_dialstate += 100;
+//    }
+
 //}
 
 
@@ -55,6 +72,31 @@ foreach (var move in processed_input)
 {
     Console.WriteLine("Current Dialstate is " + current_dialstate.ToString());
     Console.WriteLine("The dial rotated " + move.ToString());
+
+
+    current_dialstate += move;
+    // Normalize: force into correct range
+    if (current_dialstate > 99)
+    {
+        int amount_of_divisions = current_dialstate / 100;
+
+        for (int i = 0; i < amount_of_divisions; i++)
+        {
+            current_dialstate -= 100;
+        }
+
+    }
+
+    if (current_dialstate < 0)
+    {
+        int amount_of_divisions = Math.Abs(current_dialstate / 100) + 1;
+        for (int i = 0; i < amount_of_divisions; i++)
+        {
+            current_dialstate += 100;
+        }
+
+    }
+
 
     //if (current_dialstate + move >= 99) //WORKS
     //{
@@ -87,5 +129,6 @@ foreach (var move in processed_input)
 
     //}
 
-  
+
 }
+ 
